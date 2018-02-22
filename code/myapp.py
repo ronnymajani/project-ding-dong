@@ -1,9 +1,7 @@
 from telegram.ext import Updater, CommandHandler
 import logging
 import time
-
-TOKEN = "451064143:AAFEFdDjgCTvJW_t695IfK-qZdD4CBlZD8Y"
-CHANNEL_ID = "-1001329109491"
+import credentials
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -19,14 +17,14 @@ def start(bot, update):
     update.message.reply_text('Hi! Use /set <seconds> to set a timer')
 
 def main():
-    updater = Updater(token=TOKEN)
+    updater = Updater(token=credentials.TOKEN)
     updater.dispatcher.add_error_handler(error)
     updater.dispatcher.add_handler(CommandHandler("start", start))
     updater.start_polling()
 
     while True:
         print("Sending message...")
-        updater.bot.send_message(CHANNEL_ID, "Hi")
+        updater.bot.send_message(credentials.CHANNEL_ID, "Hi")
         time.sleep(5)
 
     updater.idle()

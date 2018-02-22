@@ -6,10 +6,10 @@ An automated doorbell that messages you via a Telegram channel whenever someone 
 ***The README is not yet complete***
 
 ### NOTE:
-I omitted a file called `pass.py` in which I store the TOKEN of my bot and the channel ID that it will push messages to.
+I omitted a file called `credentials.py` in which I store the TOKEN of my bot and the channel ID that it will push messages to.
 So to be able to get the code running don't forget to create this file in the folder `code` and fill it as follows:
 ``` python
-# pass.py
+# credentials.py
 
 # This is the generated access token for your telegram bot
 TOKEN = ""
