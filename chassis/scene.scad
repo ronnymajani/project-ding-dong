@@ -1,7 +1,10 @@
 include <globals.scad>
 use <chassis.scad>
+use <ESP8266-07-RNS-v7.scad>
 
-
+%translate([1.5, chassis_inner_depth-9, 10]) rotate([90, 0, 0]) {
+    socket();
+}
 /** Main Scene **/
 chassis_hull(chassis_outer_width,
             chassis_outer_height,
