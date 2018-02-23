@@ -9,6 +9,11 @@ class NetworkManager(object):
         """Initialize ESP8266 in Wireless Station mode"""
         NetworkManager._ap_if.active(False)
         NetworkManager._sta_if.active(True)    
+
+    @staticmethod
+    def isconnected():
+        """Returnes True if the device is already connected"""
+        return NetworkManager._sta_if.isconnected()
     
     # TODO: add timeout for conecting to network
     @staticmethod
@@ -19,12 +24,12 @@ class NetworkManager(object):
         if not st_if.active():
             NetworkManager.init()
         # If the device is not already connected to a network
-        if not st_if.isconnected():
+        if not NetworkManager.isconnected():
             st_if.connect(ssid, password)
             # wait for connection to succeed
             while not st_if.isconnected():
                 pass
-            print("[info] connected to network:", st_if.ifconfig())
+            print("[info] connected to network (%s):" % ssid, st_if.ifconfig())
         else:
             print("[info] already connected to network:", st_if.ifconfig())
             
