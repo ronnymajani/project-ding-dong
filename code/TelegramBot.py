@@ -1,10 +1,8 @@
+import requests
 try:  # CPython
-    import requests
     import json
 except ImportError:  # Micropython
-    import urequests
-    import usjon
-
+    import ujson as json
 
 class TelegramBot(object):
     def __init__(self, token):
@@ -16,9 +14,17 @@ class TelegramBot(object):
 
     def _send_request(self, method_name, params):
         url = self._build_url(method_name)
-        requests.get(url, params=params)
+        response = requests.get(url, json=params)
+        success = response.json()['ok']
+        if success:
+            print("Successfully sent message")
+        else:
+            print("[error] Failed to send message")
+        response.close()
+        return success
 
     def sendMessage(self, chatid, text):
+        # url += "?chat_id=%s&text=%s" % (chatid, 'test')
         params = {
             'chat_id': chatid,
             'text': text
