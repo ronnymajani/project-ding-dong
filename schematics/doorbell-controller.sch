@@ -14478,11 +14478,15 @@ Grid 5.00 mm&lt;p&gt;
 <pinref part="U1" gate="G$1" pin="RST"/>
 <wire x1="48.26" y1="55.88" x2="53.34" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="25.4" x2="48.26" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="25.4" x2="48.26" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="25.4" x2="48.26" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="48.26" x2="48.26" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="15.24" x2="68.58" y2="25.4" width="0.1524" layer="91"/>
 <junction x="68.58" y="25.4"/>
 <pinref part="CLAMP" gate="-1" pin="KL"/>
 <wire x1="73.66" y1="25.4" x2="68.58" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="GPIO16"/>
+<wire x1="53.34" y1="48.26" x2="48.26" y2="48.26" width="0.1524" layer="91"/>
+<junction x="48.26" y="48.26"/>
 </segment>
 </net>
 <net name="N$3" class="0">
