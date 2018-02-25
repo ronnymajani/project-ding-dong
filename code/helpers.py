@@ -18,7 +18,8 @@ def get_interrupt_pin():
     return _INT_PIN
 
 def send_telegram_knock_message():
-    _TELEGRAM_BOT.sendMessage(credentials.CHANNEL_ID, constants.DOORBELL_MESSAGE)
+    if not _TELEGRAM_BOT.sendMessage(credentials.CHANNEL_ID, constants.DOORBELL_MESSAGE):
+        ERROR_MODE()
 
 def status_led_on():
     _STATUS_LED.value(1)

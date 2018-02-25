@@ -29,4 +29,4 @@ class TelegramBot(object):
             'chat_id': chatid,
             'text': text
         }
-        self._send_request('sendMessage', params)
+        return self._send_request('sendMessage', params)
