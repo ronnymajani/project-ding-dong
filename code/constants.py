@@ -3,8 +3,6 @@ PIN_LED_STATUS = 5
 PIN_LED_ERROR = 4
 
 DOORBELL_MESSAGE = "Knock Knock"
-DOORBELL_AGAIN_MESSAGE = "Knock Knock Again"
-
 
 WIFI_TIMEOUT = 60
 # Time to keep the system on before going into deepsleep when an error occurrs
