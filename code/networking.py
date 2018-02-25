@@ -22,6 +22,8 @@ class NetworkManager(object):
         @param ssid: The SSID of the network to connect to
         @param password: The password of the network to connect to
         @param timeout: Optional parameters specifying the maximum seconds to wait before giving up (must be an integer)
+        @returns True if successfully connected to the network
+        @returns False if failed to connect to the specified network or if already connected to a network
         """
         st_if = NetworkManager._sta_if
         # Make sure the Station interface is active
@@ -32,17 +34,18 @@ class NetworkManager(object):
             st_if.connect(ssid, password)
             # wait for connection to succeed
             deadline = time.time() + timeout
-            while not st_if.isconnected() and time.time() < deadline:
+            while not NetworkManager.isconnected() and time.time() < deadline:
                 pass
-            if st_if.isconnected():
+            if NetworkManager.isconnected():
                 print("[info] connected to network (%s):" % ssid, st_if.ifconfig())
                 return True
             else:
                 print("[info] timeout while tying to connect to network (%s)" % ssid)
-                st_if.disconnect()
+                NetworkManager.disconnect()
                 return False
         else:
             print("[info] already connected to network:", st_if.ifconfig())
+            print False
             
     @staticmethod
     def disconnect():
