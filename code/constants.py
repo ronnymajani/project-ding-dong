@@ -1,0 +1,3 @@
+INT_PIN = 14
+
+DOORBELL_MESSAGE = "Knock Knock"
